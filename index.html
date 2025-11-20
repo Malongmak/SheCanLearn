@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SheCanLearn — Empowering African Refugee Girls</title>
+  <meta name="description"
+        content="SheCanLearn supports African refugee school girls with education, life skills, and age-appropriate sexuality education in camps and host communities.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ['Inter', 'sans-serif']
+          },
+          colors: {
+            brandBlue: '#1b9ac7',
+            brandPink: '#c63a96',
+            brandIndigo: '#123962',
+            brandNavy: '#041325',
+            brandGreen: '#6cc049',
+            brandOrange: '#f7763e',
+            brandPurple: '#8c3fdb'
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -20px) scale(1.05)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.95)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' }
+            },
+            flicker: {
+              '0%, 100%': { opacity: 1 },
+              '50%': { opacity: 0.5 }
+            }
+          },
+          animation: {
+            blob: 'blob 14s ease-in-out infinite',
+            float: 'float 8s ease-in-out infinite',
+            flicker: 'flicker 3.5s linear infinite'
+          },
+          boxShadow: {
+            glow: '0 25px 80px rgba(15, 23, 42, 0.35)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Tiny global styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-[#f4c542] text-slate-900 font-inter antialiased">
+  <div class="relative isolate overflow-hidden">
+    <!-- floating blobs -->
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div class="absolute -left-10 top-20 h-64 w-64 rounded-full bg-brandPink/40 blur-3xl animate-blob animate-delay-0000"></div>
+      <div class="absolute right-0 top-40 h-72 w-72 rounded-full bg-brandBlue/40 blur-3xl animate-blob animate-delay-3000"></div>
+      <div class="absolute left-40 bottom-20 h-72 w-72 rounded-full bg-brandGreen/30 blur-3xl animate-blob animate-delay-6000"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-white/80 backdrop-blur-lg">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <a href="#home" class="flex items-center gap-3">
+          <img src="/assets/logos/logo.jpg"
+               alt="SheCanLearn logo"
+               class="h-12 w-12 rounded-2xl bg-white/70 p-1 shadow-lg shadow-brandBlue/30">
+          <div>
+            <p class="text-base font-semibold text-brandBlue">SheCanLearn</p>
+            <p class="text-sm text-slate-500">African Refugee Girls</p>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-8 text-sm font-medium text-slate-700 lg:flex">
+          <a href="#home" class="nav-link hover:text-brandBlue transition-colors">Home</a>
+          <a href="#vision" class="nav-link hover:text-brandBlue transition-colors">About</a>
+          <a href="#programs-section" class="nav-link hover:text-brandBlue transition-colors">Programs</a>
+          <a href="#impact-section" class="nav-link hover:text-brandBlue transition-colors">Impact</a>
+          <a href="#get-involved-section" class="nav-link hover:text-brandBlue transition-colors">Get Involved</a>
+          <a href="#campus-on-map" class="nav-link hover:text-brandBlue transition-colors">Where We Work</a>
+          <a href="#contact-form" class="nav-link hover:text-brandBlue transition-colors">Contact</a>
+        </nav>
+
+        <button id="mobileToggle"
+                class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-700 transition hover:text-brandBlue lg:hidden"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+      </div>
+
+      <div id="mobileMenu" class="border-t border-white/10 bg-white/95 px-4 py-4 lg:hidden hidden">
+        <div class="flex flex-col gap-4 text-sm font-medium text-slate-700">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#vision" class="nav-link">About</a>
+          <a href="#programs-section" class="nav-link">Programs</a>
+          <a href="#impact-section" class="nav-link">Impact</a>
+          <a href="#get-involved-section" class="nav-link">Get Involved</a>
+          <a href="#campus-on-map" class="nav-link">Where We Work</a>
+          <a href="#contact-form" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="relative mx-auto max-w-6xl px-4 pb-20 pt-10 sm:px-6 lg:px-8">
+      <!-- Hero -->
+      <section id="home"
+               class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brandNavy via-slate-900 to-brandBlue text-white shadow-glow">
+        <div class="absolute inset-0 opacity-70">
+          <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1600&q=80"
+               alt="African girls learning in class"
+               class="h-full w-full object-cover mix-blend-overlay">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-br from-brandNavy/90 via-brandNavy/80 to-brandBlue/70"></div>
+
+        <div class="relative grid gap-12 px-6 py-16 lg:grid-cols-2 lg:px-14">
+          <div class="space-y-6" data-animate>
+            <p class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-sm font-medium text-white/80 backdrop-blur">
+              <span class="h-2 w-2 rounded-full bg-brandPink animate-pulse"></span>
+              Refugee-led education for girls
+            </p>
+            <h1 class="text-4xl font-semibold leading-tight sm:text-5xl">
+              SheCanLearn creates safe, modern learning spaces so African refugee girls can thrive.
+            </h1>
+            <p class="text-base text-white/80">
+              We combine offline-first digital learning, leadership mentoring, and age-appropriate sexuality education to help girls stay in school, stay safe, and lead change in their communities.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#get-involved-section"
+                 class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-brandNavy shadow-lg shadow-brandPink/30 transition hover:-translate-y-0.5 hover:bg-slate-100">
+                Donate / Get Involved
+                <i class="fas fa-arrow-right text-brandPink"></i>
+              </a>
+              <a href="#programs-section"
+                 class="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                Explore Programs
+              </a>
+            </div>
+            <div class="flex flex-wrap gap-6 pt-4 text-white/80">
+              <div>
+                <p class="text-3xl font-bold text-brandGreen">200+</p>
+                <p class="text-sm uppercase tracking-wide">Girls actively enrolled</p>
+              </div>
+              <div>
+                <p class="text-3xl font-bold text-brandOrange">6</p>
+                <p class="text-sm uppercase tracking-wide">Countries</p>
+              </div>
+              <div>
+                <p class="text-3xl font-bold text-brandPink">92%</p>
+                <p class="text-sm uppercase tracking-wide">School retention</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative flex items-center" data-animate>
+            <div class="relative mx-auto w-full max-w-sm rounded-3xl bg-white/10 p-6 shadow-2xl backdrop-blur">
+              <div class="space-y-5 rounded-2xl bg-white/95 p-5 text-slate-900 shadow-xl">
+                <div class="flex items-center gap-3">
+                  <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brandBlue/10 text-brandBlue">
+                    <i class="fas fa-graduation-cap"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm text-slate-500">Digital Hub</p>
+                    <p class="text-base font-semibold">Kakuma Mentorship Circle</p>
+                  </div>
+                </div>
+                <ul class="space-y-3 text-sm text-slate-600">
+                  <li class="flex items-center gap-2">
+                    <span class="h-1.5 w-1.5 rounded-full bg-brandBlue"></span> Offline-first learning playlists
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="h-1.5 w-1.5 rounded-full bg-brandBlue"></span> Trauma-informed safeguarding
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="h-1.5 w-1.5 rounded-full bg-brandBlue"></span> Peer mentorship &amp; leadership labs
+                  </li>
+                </ul>
+                <p class="text-sm font-medium text-brandBlue">“I can now teach my friends to code.” — Amina, age 15</p>
+              </div>
+              <div class="absolute -right-8 top-1/2 hidden w-24 -translate-y-1/2 rounded-2xl bg-white/20 p-4 text-xs font-semibold uppercase tracking-wide text-white shadow-lg shadow-brandBlue/40 backdrop-blur lg:block">
+                Safe <br>Spaces
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission & Stats -->
+      <section id="vision" class="mt-14 grid gap-10 rounded-3xl bg-white/80 p-8 shadow-2xl shadow-brandNavy/5 lg:grid-cols-[1.2fr_1fr]" data-animate>
+        <div>
+          <h2 class="text-3xl font-semibold text-brandNavy">Mission &amp; Vision</h2>
+          <p class="mt-4 text-base text-slate-600">
+            SheCanLearn is committed to ensuring that African refugee school girls have the tools, confidence, and support they need to shape their own futures. We co-create safe spaces in camps and host communities where digital learning, life skills, and sexuality education meet safeguarding and joy.
+          </p>
+          <p class="mt-4 text-base text-slate-600">
+            We envision a world where every refugee girl can stay in school, make safe, informed choices about her health, and lead community change. Our approach is trauma-informed, youth-led, and rooted in partnerships with refugee-led groups, schools, and humanitarian organizations.
+          </p>
+        </div>
+        <div class="grid gap-4 rounded-2xl bg-slate-900/90 p-6 text-white">
+          <div>
+            <p class="text-4xl font-semibold text-brandBlue">15+</p>
+            <p class="text-sm uppercase tracking-wide text-white/70">Learning hubs</p>
+          </div>
+          <div>
+            <p class="text-4xl font-semibold text-brandGreen">40</p>
+            <p class="text-sm uppercase tracking-wide text-white/70">Mentor coaches</p>
+          </div>
+          <div>
+            <p class="text-4xl font-semibold text-brandOrange">100%</p>
+            <p class="text-sm uppercase tracking-wide text-white/70">Sexuality education coverage</p>
+          </div>
+          <p class="text-sm text-white/80">
+            Our hubs run on low-data technology, solar power, and community mentors—ensuring continuity even when formal schooling is disrupted.
+          </p>
+        </div>
+      </section>
+
+      <!-- Programs -->
+      <section id="programs-section" class="mt-16" data-animate>
+        <div class="flex items-center gap-3">
+          <span class="h-10 w-10 rounded-2xl bg-brandBlue/10 text-brandBlue inline-flex items-center justify-center">
+            <i class="fas fa-hands-helping"></i>
+          </span>
+          <div>
+            <p class="text-sm uppercase tracking-wide text-brandBlue">What we run</p>
+            <h2 class="text-3xl font-semibold text-brandNavy">Programs for resilient learning</h2>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          <div class="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-lg shadow-slate-800/5 transition hover:-translate-y-1 hover:shadow-xl">
+            <h3 class="text-xl font-semibold text-brandNavy">Digital Learning Hubs</h3>
+            <p class="mt-3 text-base text-slate-600">
+              Offline-friendly, solar-powered spaces that keep girls learning even when schools are disrupted. Devices are preloaded with localized curriculum, STEM playlists, and safeguarding tips.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-600">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-brandBlue"></i> Offline-first playlists &amp; micro-learning</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-brandBlue"></i> Guardianship protocols &amp; safe transport</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-brandBlue"></i> Solar + battery backups for reliability</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-lg shadow-slate-800/5 transition hover:-translate-y-1 hover:shadow-xl">
+            <h3 class="text-xl font-semibold text-brandNavy">Financial Literacy &amp; Life Skills</h3>
+            <p class="mt-3 text-base text-slate-600">
+              Budgeting, savings groups, basic entrepreneurship, and everyday problem-solving for girls and their caregivers, delivered in interactive circles.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-600">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-brandBlue"></i> Youth-friendly cash flow simulations</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-brandBlue"></i> Intergenerational money dialogues</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-brandBlue"></i> Micro-grants for girl-led projects</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-lg shadow-slate-800/5 transition hover:-translate-y-1 hover:shadow-xl">
+            <h3 class="text-xl font-semibold text-brandNavy">Leadership &amp; Mentorship</h3>
+            <p class="mt-3 text-base text-slate-600">
+              Confidence-building, public speaking, and peer mentorship for refugee girls. Alumni co-facilitate sessions and are supported to launch community campaigns.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-600">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-brandBlue"></i> Youth councils &amp; storytelling labs</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-brandBlue"></i> Mentorship badges and pathways</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-brandBlue"></i> Shadowing humanitarian professionals</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-lg shadow-slate-800/5 transition hover:-translate-y-1 hover:shadow-xl">
+            <h3 class="text-xl font-semibold text-brandNavy">Sexuality &amp; Health Education</h3>
+            <p class="mt-3 text-base text-slate-600">
+              Age-appropriate lessons on body safety, consent, healthy relationships, and reproductive health—co-designed with parents, teachers, and safeguarding officers.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-600">
+              <li class="flex items-center gap-2"><i class="fas fa-check text-brandBlue"></i> Consent-focused storytelling</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-brandBlue"></i> Survivor-centered referral routes</li>
+              <li class="flex items-center gap-2"><i class="fas fa-check text-brandBlue"></i> Male ally &amp; caregiver workshops</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Impact -->
+      <section id="impact-section" class="mt-16" data-animate>
+        <div class="flex items-center justify-between gap-6">
+          <div>
+            <p class="text-sm uppercase tracking-wide text-brandBlue">Impact highlights</p>
+            <h2 class="text-3xl font-semibold text-brandNavy">Girls leading change where they live</h2>
+          </div>
+          <a href="#contact-form" class="hidden rounded-full border border-brandBlue/20 px-5 py-2 text-sm font-semibold text-brandBlue hover:bg-brandBlue/10 md:inline-flex">
+            Share your partnership idea
+          </a>
+        </div>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <article class="group rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-lg transition hover:-translate-y-1 hover:border-brandBlue/30 hover:shadow-xl">
+            <h3 class="text-xl font-semibold text-brandNavy">200 Girls Reached</h3>
+            <p class="mt-3 text-base text-slate-600">
+              African refugee school girls currently enrolled across camps and host communities in East Africa.
+            </p>
+            <p class="mt-4 text-sm font-medium text-brandBlue">+60% growth this year</p>
+          </article>
+
+          <article class="group rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-lg transition hover:-translate-y-1 hover:border-brandBlue/30 hover:shadow-xl">
+            <h3 class="text-xl font-semibold text-brandNavy">100% Sexuality Education</h3>
+            <p class="mt-3 text-base text-slate-600">
+              Every participating girl receives age-appropriate sexuality education that focuses on safety, consent, and informed choices.
+            </p>
+            <p class="mt-4 text-sm font-medium text-brandBlue">Delivered with safeguarding teams</p>
+          </article>
+
+          <article class="group rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-lg transition hover:-translate-y-1 hover:border-brandBlue/30 hover:shadow-xl">
+            <h3 class="text-xl font-semibold text-brandNavy">Community Leadership</h3>
+            <p class="mt-3 text-base text-slate-600">
+              Alumni of our leadership track now serve as youth mentors, co-facilitators, and advocates for girls’ education.
+            </p>
+            <p class="mt-4 text-sm font-medium text-brandBlue">24 alumni lead weekly circles</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about-us-section" class="mt-16 rounded-3xl bg-white/90 p-8 shadow-xl shadow-slate-900/5" data-animate>
+        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <h2 class="text-3xl font-semibold text-brandNavy">About SheCanLearn</h2>
+            <p class="mt-4 text-base text-slate-600">
+              <span class="font-semibold text-brandNavy">Who we are:</span> SheCanLearn is a nonprofit initiative created by educators and community organizers who have worked alongside refugee communities for many years. We saw too many girls forced out of school by displacement, early marriage, and lack of safe spaces—and decided to act.
+            </p>
+            <p class="mt-4 text-base text-slate-600">
+              We partner with local schools, refugee-led groups, and humanitarian organizations to co-design programs that are practical, culturally relevant, and rooted in girls’ everyday realities. Our work focuses on access to learning, safety and wellbeing, and leadership so girls can influence decisions that affect their lives.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-dashed border-brandBlue/30 p-6">
+            <h3 class="text-xl font-semibold text-brandNavy">Three pillars</h3>
+            <ul class="mt-4 space-y-4 text-base text-slate-600">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-brandBlue"></span>
+                Access to inclusive learning powered by low-data tech, mentors, and safe spaces.
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-brandBlue"></span>
+                Safety &amp; wellbeing through safeguarding, psychosocial care, and trusted adults.
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-brandBlue"></span>
+                Leadership opportunities for girls to co-create solutions and influence policy.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stories -->
+      <section class="mt-16" data-animate>
+        <div class="flex items-center gap-3">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brandPink/15 text-brandPink">
+            <i class="fas fa-heart"></i>
+          </span>
+          <div>
+            <p class="text-sm uppercase tracking-wide text-brandPink">Field notes</p>
+            <h2 class="text-3xl font-semibold text-brandNavy">Stories from the movement</h2>
+          </div>
+        </div>
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          <article class="relative overflow-hidden rounded-3xl bg-brandNavy p-8 text-white shadow-2xl">
+            <div class="absolute inset-0 bg-gradient-to-tr from-brandPink/30 via-transparent to-transparent"></div>
+            <div class="relative space-y-4">
+              <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide">Field story</span>
+              <h3 class="text-2xl font-semibold">Meet Amina</h3>
+              <p class="text-base text-white/80">
+                Amina joined our Digital Learning Hub in Kakuma camp and moved from struggling with math to mentoring younger girls. She now leads weekly coding clubs and helps facilitate safeguarding circles.
+              </p>
+              <p class="text-sm text-white/70">“When someone believes in you, you start believing in yourself.”</p>
+            </div>
+          </article>
+          <article class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white/95 p-8 shadow-xl">
+            <div class="relative space-y-4">
+              <span class="inline-flex items-center gap-2 rounded-full bg-brandBlue/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brandBlue">Community voice</span>
+              <h3 class="text-2xl font-semibold text-brandNavy">Teachers Speak</h3>
+              <p class="text-base text-slate-600">
+                “SheCanLearn makes it easier to keep our girls in school. The mentors work side-by-side with us and the parents,” says Grace, a head teacher in Adjumani district.
+              </p>
+              <p class="text-sm font-medium text-brandBlue">Grace, Head Teacher — Adjumani District</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Get involved -->
+      <section id="get-involved-section" class="mt-16 rounded-3xl bg-gradient-to-br from-white via-indigo-50 to-brandBlue/10 p-8 shadow-xl" data-animate>
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-wide text-brandBlue">Take action</p>
+            <h2 class="text-3xl font-semibold text-brandNavy">Get involved today</h2>
+            <p class="mt-3 max-w-2xl text-base text-slate-600">
+              Stand with African refugee girls by giving, volunteering, or partnering with SheCanLearn. Every action—from a monthly donation to skills-based volunteering—helps create safe, supportive learning spaces.
+            </p>
+          </div>
+          <a href="#contact-form" class="inline-flex items-center gap-2 rounded-full bg-brandBlue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brandBlue/40 hover:-translate-y-0.5">
+            Talk to our team
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="mt-8 grid gap-6 lg:grid-cols-3">
+          <div class="rounded-2xl bg-white/90 p-6 shadow-lg shadow-brandBlue/10">
+            <h3 class="text-xl font-semibold text-brandNavy">Donate</h3>
+            <p class="mt-3 text-base text-slate-600">Help us provide learning materials, trained mentors, and safe spaces for girls to learn and lead.</p>
+            <button class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brandBlue hover:text-brandPink transition">
+              Give monthly <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          <div class="rounded-2xl bg-white/90 p-6 shadow-lg shadow-brandBlue/10">
+            <h3 class="text-xl font-semibold text-brandNavy">Volunteer</h3>
+            <p class="mt-3 text-base text-slate-600">Offer your skills in mentoring, training, translation, curriculum development, or remote support.</p>
+            <button class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brandBlue hover:text-brandPink transition">
+              Explore roles <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          <div class="rounded-2xl bg-white/90 p-6 shadow-lg shadow-brandBlue/10">
+            <h3 class="text-xl font-semibold text-brandNavy">Partner</h3>
+            <p class="mt-3 text-base text-slate-600">Work with us as a school, NGO, refugee-led group, or funder to bring SheCanLearn programs to your community.</p>
+            <button class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brandBlue hover:text-brandPink transition">
+              Start a conversation <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    <!-- Partner Logos -->
+    <section id="partners" class="mt-16 rounded-3xl bg-white/95 p-8 shadow-2xl shadow-slate-900/5" data-animate>
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <p class="text-sm uppercase tracking-wide text-brandBlue">Allies</p>
+          <h2 class="text-3xl font-semibold text-brandNavy">We partner with allies around the world</h2>
+          <p class="mt-3 max-w-2xl text-base text-slate-600">
+          </p>
+        </div>
+        <a href="#contact-form" class="inline-flex items-center gap-2 rounded-full bg-brandBlue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brandBlue/40 hover:-translate-y-0.5">
+          <i class="fas fa-folder-open"></i>
+        </a>
+      </div>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="flex h-32 items-center justify-center rounded-2xl border border-dashed border-brandBlue/30 bg-white">
+          <img src="./assets/Primary-Logo.jpg" alt="SheCanLearn primary logo" class="max-h-20 object-contain">
+        </div>
+        <div class="flex h-32 items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50">
+          <img src="./assets/Partner-1.png" alt="Partner logo 2" class="max-h-20 object-contain">
+        </div>
+        <div class="flex h-32 items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50">
+          <img src="./assets/Partner-2.jpg" alt="Partner logo 3" class="max-h-20 object-contain">
+        </div>
+        <div class="flex h-32 items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50">
+          <img src="./assets/Partner-3.jpg" alt="Partner logo 4" class="max-h-20 object-contain">
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="mt-16" data-animate>
+      <div class="flex items-center gap-3">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brandPink/15 text-brandPink">
+          <i class="fas fa-user-friends"></i>
+        </span>
+        <div>
+          <p class="text-sm uppercase tracking-wide text-brandPink">Meet the team</p>
+          <h2 class="text-3xl font-semibold text-brandNavy">Refugee women &amp; allies leading the work</h2>
+        </div>
+      </div>
+      <p class="mt-4 text-base text-slate-600">
+        SheCanLearn is led by a team of refugees, refugees-led organizations, and allies.
+      </p>
+      <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <article class="rounded-3xl bg-white/95 p-6 text-center shadow-lg">
+          <img src="./assets/Member-1.jpg" alt="Team member 1" class="mx-auto h-32 w-32 rounded-3xl object-cover shadow-md shadow-brandBlue/20">
+          <h3 class="mt-4 text-xl font-semibold text-brandNavy">Resala Rashid Ayoub</h3>
+          <p class="text-sm text-brandBlue">Founder & CEO</p>
+          <p class="mt-2 text-sm text-slate-600">Strategic leadership, program vision, partnership development, and organizational growth.</p>
+        </article>
+        <article class="rounded-3xl bg-white/95 p-6 text-center shadow-lg">
+          <img src="./assets/Member-2.jpg" alt="Team member 2" class="mx-auto h-32 w-32 rounded-3xl object-cover shadow-md shadow-brandBlue/20">
+          <h3 class="mt-4 text-xl font-semibold text-brandNavy">Joshua Malong</h3>
+          <p class="text-sm text-brandBlue">Programme Director</p>
+          <p class="mt-2 text-sm text-slate-600">Program planning, technology integration, research management, and operational oversight.</p>
+        </article>
+        <article class="rounded-3xl bg-white/95 p-6 text-center shadow-lg">
+          <img src="./assets/Member-3.jpg" alt="Team member 3" class="mx-auto h-32 w-32 rounded-3xl object-cover shadow-md shadow-brandBlue/20">
+          <h3 class="mt-4 text-xl font-semibold text-brandNavy">Sabir Walid Abdurahman</h3>
+          <p class="text-sm text-brandBlue">Finance Officer</p>
+          <p class="mt-2 text-sm text-slate-600">Financial management, budgeting, and donor reporting.</p>
+        </article>
+        <article class="rounded-3xl bg-white/95 p-6 text-center shadow-lg">
+          <img src="./assets/Member-4.jpg" alt="Team member 4" class="mx-auto h-32 w-32 rounded-3xl object-cover shadow-md shadow-brandBlue/20">
+          <h3 class="mt-4 text-xl font-semibold text-brandNavy">Islam Omar Hemada</h3>
+          <p class="text-sm text-brandBlue">Communication Officer</p>
+          <p class="mt-2 text-sm text-slate-600">External communications, digital strategy, and community engagement.</p>
+        </article>
+        <article class="rounded-3xl bg-white/95 p-6 text-center shadow-lg">
+          <img src="./assets/Member-5.jpg" alt="Team member 5" class="mx-auto h-32 w-32 rounded-3xl object-cover shadow-md shadow-brandBlue/20">
+          <h3 class="mt-4 text-xl font-semibold text-brandNavy">Simon Raineen</h3>
+          <p class="text-sm text-brandBlue">M&E Officer</p>
+          <p class="mt-2 text-sm text-slate-600">Monitoring & evaluation, impact assessment, and program improvement.</p>
+        </article>
+        <article class="rounded-3xl bg-white/95 p-6 text-center shadow-lg">
+          <img src="./assets/Member-6.jpg" alt="Team member 6" class="mx-auto h-32 w-32 rounded-3xl object-cover shadow-md shadow-brandBlue/20">
+          <h3 class="mt-4 text-xl font-semibold text-brandNavy">Kunda Abraham Hamad Kuku</h3>
+          <p class="text-sm text-brandBlue">Educational Officer</p>
+          <p class="mt-2 text-sm text-slate-600">Curriculum development, program implementation, and learning outcome evaluation.</p>
+        </article>
+      </div>
+    </section>
+
+      <!-- Where we work -->
+      <section id="campus-on-map" class="mt-16" data-animate>
+        <div class="flex items-center gap-3">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brandBlue/10 text-brandBlue">
+            <i class="fas fa-map-marked-alt"></i>
+          </span>
+          <div>
+            <p class="text-sm uppercase tracking-wide text-brandBlue">Where we serve</p>
+          <h2 class="text-3xl font-semibold text-brandNavy">Camps &amp; host communities</h2>
+          </div>
+        </div>
+      <p class="mt-3 max-w-3xl text-base text-slate-600">
+        We work with African refugee girls in camps and host communities across Sudan, Ethiopia, Kenya, Rwanda, Uganda, and South Sudan (including Ajuongthok). Customize the map below with your specific hub locations.
+        </p>
+      <div class="mt-6 overflow-hidden rounded-3xl border border-white/40 shadow-2xl shadow-slate-900/20">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6394908.045794314!2d24.99490376210342!3d1.930633004983403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1784be05cf9575eb%3A0xb2a6e0ab6f75eee1!2sEast%20Africa!5e0!3m2!1sen!2s!4v1732137600000!5m2!1sen!2s"
+          width="100%" height="450" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact-form" class="mt-16 rounded-3xl bg-white/95 p-8 shadow-2xl shadow-slate-900/10" data-animate>
+        <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p class="text-sm uppercase tracking-wide text-brandBlue">Contact</p>
+            <h2 class="text-3xl font-semibold text-brandNavy">Reach the team</h2>
+            <p class="mt-3 text-base text-slate-600">
+              Have a question, partnership idea, or want to learn more about our work? Send us a message and we’ll get back to you.
+            </p>
+            <ul class="mt-6 space-y-4 text-base text-slate-600">
+              <li class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brandBlue/10 text-brandBlue"><i class="fas fa-map-marker-alt"></i></span>
+                Kampala · Nairobi · Kigali · Addis Ababa · Juba · Khartoum
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brandBlue/10 text-brandBlue"><i class="fas fa-phone-alt"></i></span>
+                +250 (0) 791 900 610
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brandBlue/10 text-brandBlue"><i class="fas fa-envelope"></i></span>
+                shecanlearn@gmail.com
+              </li>
+            </ul>
+          </div>
+          <form id="contactForm" class="space-y-4 rounded-2xl border border-slate-100 bg-white p-6 shadow-inner shadow-slate-100">
+            <div>
+              <label for="fullName" class="block text-sm font-medium text-slate-700">Full Name</label>
+              <input type="text" id="fullName" name="fullName" required
+                     class="mt-1 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-800 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/30">
+            </div>
+            <div class="grid gap-4 md:grid-cols-2">
+              <div>
+                <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
+                <input type="email" id="email" name="email" required
+                       class="mt-1 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-800 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/30">
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-slate-700">Phone</label>
+                <input type="text" id="phone" name="phone"
+                       class="mt-1 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-800 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/30">
+              </div>
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-slate-700">Message</label>
+              <textarea id="message" name="message" rows="5" required
+                        class="mt-1 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm text-slate-800 focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/30"></textarea>
+            </div>
+            <button type="submit"
+                    class="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-brandBlue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brandBlue/30 transition hover:-translate-y-0.5 hover:bg-brandIndigo">
+              Submit message
+              <i class="fas fa-paper-plane"></i>
+            </button>
+            <p id="formStatus" class="text-sm font-medium text-brandBlue"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-slate-900/80 py-8 text-center text-sm text-white/60">
+      <p>&copy; <span id="year"></span> SheCanLearn. All rights reserved.</p>
+      <p class="mt-1 text-xs text-white/50">Built with community partners across Africa.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

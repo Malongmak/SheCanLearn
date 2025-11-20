@@ -1,0 +1,32 @@
+/* Global helpers for Tailwind-powered layout */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #f4c542;
+}
+
+.animate-delay-0000 {
+  animation-delay: 0s !important;
+}
+
+.animate-delay-3000 {
+  animation-delay: 3s !important;
+}
+
+.animate-delay-6000 {
+  animation-delay: 6s !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .animate-float,
+  .animate-flicker,
+  .transition,
+  .transition-all {
+    animation: none !important;
+    transition: none !important;
+  }
+}
